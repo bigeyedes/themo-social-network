@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PostHeader from '../../molecules/PostHeader/PostHeader';
+import PostFooter from '../../molecules/PostFooter/PostFooter';
 
 
 const PostContainer = styled.div`
@@ -10,7 +11,7 @@ const PostContainer = styled.div`
 	max-width: 50%;
 `
 const PostContent = styled.div`
-	padding: 30px 10px;
+	padding: 30px 0;
 	font-size: 0.9em;
 	color: #696969;
 	font-family: 'Sora', sans-serif;
@@ -23,6 +24,7 @@ const Post = () => {
 			<PostContent>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ligula rhoncus, feugiat lacus vitae, pharetra leo. Nulla mollis suscipit lacus, quis commodo lacus aliquam nec. Fusce ligula felis, pulvinar sit amet pulvinar at, finibus non arcu. Vivamus nisi nibh, rhoncus ac congue sit amet, lobortis semper ante. Nam ornare nunc nec felis tempor elementum. 
 			</PostContent>
+			<PostFooter></PostFooter>
 		</PostContainer>
 	)
 }

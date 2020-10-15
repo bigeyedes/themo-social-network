@@ -10,13 +10,13 @@ const Button = styled.button`
 	transition: .3s ease;
 	cursor: pointer;
 	&:hover {
-		opacity: .7
+		opacity: 0.7
 	}
 
 	${({ secondary }) =>
     secondary &&
     css`
-      background-color: black;
+      background: black;
     `}
 `
 

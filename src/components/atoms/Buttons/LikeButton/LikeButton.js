@@ -13,7 +13,7 @@ const Like = styled.button`
 	background-position: center;
 	border: none;
 	&:hover {
-		opacity: .7
+		opacity: 0.7
 	}
 
 	${({ liked }) =>
