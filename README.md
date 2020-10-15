@@ -1,6 +1,6 @@
 #### Themo Social Network Application
 
-Themo is a social network app. 
+Themo is a social network app created with React + Hooks and Atomic Design. 
 All data stored in global store (Redux) and Google Firebase Real-time Database
 
 ## Technologies:
