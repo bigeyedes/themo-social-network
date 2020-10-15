@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 		color: black;
 		background: '#FAFCFF'
 	}
-	input, textarea {
+	input, textarea, h1, h2, h3, h4, h5, h6, span, p {
 		font-family: 'Sora', sans-serif;
 	}
 `

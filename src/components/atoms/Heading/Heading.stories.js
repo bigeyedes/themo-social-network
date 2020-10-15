@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react';
-import PostButton from './PostButton';
+import Heading from './Heading';
 
 storiesOf('Atoms', module)
-	.add('Send Button', () => <PostButton></PostButton>)
+	.add('Heading', () => <Heading>Heading</Heading>)
