@@ -15,7 +15,7 @@ const PostButton = styled.button`
 	background-repeat: no-repeat;
 	cursor: pointer;
 	&:hover {
-		opacity: .7
+		opacity: 0.7
 	}
 `
 
