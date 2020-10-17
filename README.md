@@ -5,7 +5,7 @@ All data stored in global store (Redux) and Google Firebase Real-time Database
 
 ## Technologies:
 1. React + Hooks
-2. React Bootstrap
+2. React Redux
 3. Styled-components
 4. React Storybook
 5. Jest/React-testing-library

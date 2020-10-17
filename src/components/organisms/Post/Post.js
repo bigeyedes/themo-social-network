@@ -8,7 +8,8 @@ const PostContainer = styled.div`
 	padding: 20px;
 	border-radius: 5px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-	max-width: 50%;
+	max-width: 100%;
+	margin: 30px 0;
 `
 const PostContent = styled.div`
 	padding: 30px 0;

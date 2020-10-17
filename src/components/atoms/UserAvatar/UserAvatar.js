@@ -1,6 +1,17 @@
+import React from 'react'
+
 import styled, { css } from 'styled-components'
 import avatar from './avatar.jpg'
 
+const UserInfoContainer = styled.a`
+	display: block;
+	font-size: 0.8em;
+	color: grey;
+	display: flex;
+	align-items: center;
+	font-family: 'Sora', sans-serif;
+	font-weight: 600;
+`
 const UserAvatar = styled.div`
 	background-image: url(${avatar});
 	background-position: center;
@@ -20,4 +31,13 @@ const UserAvatar = styled.div`
     `}
 `
 
-export default UserAvatar;
+const UserInfo = () => {
+	return(
+		<UserInfoContainer>
+			<UserAvatar />
+		</UserInfoContainer>
+		
+	)
+}
+
+export default UserInfo;
