@@ -7,7 +7,7 @@ import PostFooter from '../../molecules/PostFooter/PostFooter';
 const PostContainer = styled.div`
 	padding: 20px;
 	border-radius: 5px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 	max-width: 100%;
 	margin: 30px 0;
 `
@@ -18,12 +18,12 @@ const PostContent = styled.div`
 	font-family: 'Sora', sans-serif;
 `
 
-const Post = () => {
+const Post = ({content}) => {
 	return(
 		<PostContainer>
 			<PostHeader></PostHeader>
 			<PostContent>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ligula rhoncus, feugiat lacus vitae, pharetra leo. Nulla mollis suscipit lacus, quis commodo lacus aliquam nec. Fusce ligula felis, pulvinar sit amet pulvinar at, finibus non arcu. Vivamus nisi nibh, rhoncus ac congue sit amet, lobortis semper ante. Nam ornare nunc nec felis tempor elementum. 
+				{content}
 			</PostContent>
 			<PostFooter></PostFooter>
 		</PostContainer>

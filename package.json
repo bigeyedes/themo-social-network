@@ -8,11 +8,16 @@
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.24.0",
     "jest-styled-components": "^7.0.3",
+    "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-redux": "^7.2.1",
+    "react-redux-firebase": "^3.7.0",
     "react-scripts": "3.4.3",
     "react-test-renderer": "^16.14.0",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.5",
+    "redux-firestore": "^0.14.0",
     "styled-components": "^5.2.0"
   },
   "scripts": {
