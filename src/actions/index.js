@@ -1,6 +1,6 @@
-export const contactsFetched = (posts) => ({
-	type: 'FETCH_POSTS',
-	payload: {
-		posts
-	}
-  });
+const add = items => ({
+	type: 'ADD_POSTS',
+	items
+});
+
+export default add;

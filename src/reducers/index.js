@@ -1,9 +1,16 @@
-import { firestore } from '../firebase/index'
-
-const intialState = []
+const intialState = {
+	posts: ''
+}
 
 const rootReducer = (state = intialState, action) => {
-	return state
+	switch (action.type) {
+		case 'ADD_POSTS':
+		  return {
+			...state, posts: [...state.posts, action.items]
+		  }
+		default:
+		  return state
+		}
 }
 
 export default rootReducer
