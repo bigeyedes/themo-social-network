@@ -21,10 +21,10 @@ const PostContent = styled.div`
 	font-family: 'Sora', sans-serif;
 `
 
-const Post = ({content}) => {
+const Post = ({content, title, timestamp}) => {
 	return(
 		<PostContainer>
-			<PostHeader></PostHeader>
+			<PostHeader title={title} timestamp={timestamp}/>
 			<PostContent>
 				{content}
 			</PostContent>

@@ -10,14 +10,18 @@ const PostHeaderContainer = styled.div`
 	align-items: center;
 `
 
-const PostHeader = () => {
+const PostHeader = ({title, timestamp}) => {
+
+	const timestampToISODate = timestamp.toDate().toDateString()
+	const timestampToISOHours = timestamp.toDate().toLocaleTimeString()
+
 	return(
 		<div>
 			<PostHeaderContainer>
 				<UserAvatar></UserAvatar>
 				<div>
-					<Heading>Title</Heading>
-					<TimeStamp>22.09.2020 | 14:48</TimeStamp>
+					<Heading>{title}</Heading>
+				<TimeStamp>{timestampToISODate} | {timestampToISOHours}</TimeStamp>
 				</div>
 				
 			</PostHeaderContainer>

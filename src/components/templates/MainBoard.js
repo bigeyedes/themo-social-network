@@ -33,7 +33,7 @@ function MainBoard({posts, add}) {
 		<Sidebar />
 		<BoardContainer >
 			{Object.entries(posts).map(([key, value]) => {
-				return <Post key={key} content={value.content}/>
+				return <Post key={key} content={value.content} title={value.title} timestamp={value.timestamp}/>
 			})}
 		</BoardContainer>
     </>
