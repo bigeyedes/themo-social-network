@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { firestore } from '../../firebase'
-import add from '../../actions'
+import { firestore } from '../../../firebase'
+import add from '../../../actions'
 
-import Header from '../organisms/Header/Header';
-import Post from '../organisms/Post/Post';
-import Sidebar from '../organisms/Sidebar/Sidebar'
+import Header from '../../organisms/Header/Header';
+import Post from '../../organisms/Post/Post';
+import Sidebar from '../../organisms/Sidebar/Sidebar'
 
 
 const BoardContainer = styled.div`
