@@ -7,7 +7,8 @@ import {
 import styled from 'styled-components';
 import GlobalStyle from 'theme/GlobalStyle';
 import MainBoard from 'components/templates/MainBoard/MainBoard';
-import RegisterForm from 'components/templates/Registration/Registration'
+import Registration from 'components/templates/Registration/Registration'
+import Login from 'components/templates/Login/Login'
 
 const AppContainer = styled.div`
 	display: flex;
@@ -20,8 +21,11 @@ function App() {
 		<GlobalStyle />
 		<Router>
 				<Switch>
+					<Route path="/sign-in">
+						<Login />
+					</Route>
 					<Route path="/sign-up">
-						<RegisterForm />
+						<Registration />
 					</Route>
 					<Route path="/home">
 						<MainBoard />

@@ -49,7 +49,8 @@ function Header(props) {
 			<SearchInput placeholder="Search"/>
 		</div>
 		<AvatarWrapper>
-			<Link to="/sign-up">Sing Up</Link>
+			<Link to="/sign-in">Sign In</Link>
+			<Link to="/sign-up">Sign Up</Link>
 			{/* <UserAvatar/> */}
 		</AvatarWrapper>
     </HeaderContainer>

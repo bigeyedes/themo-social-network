@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import Input from '../../atoms/Input/Input'
 import Button from '../../atoms/Buttons/Button/Button'
@@ -33,22 +28,20 @@ const From = styled.form`
 	}
 `
 
-const RegisterForm = () => {
+const LoginForm = () => {
 	return(
 		<RegisterFormContainer>
-		<div>
-			<h1>Want to be part of Themo?</h1>
-			<p>Just fill form below and join to our community!</p>
-		</div>
+			<div>
+				<h1>Sign in and start posting!</h1>
+			</div>
 		<From>
-			<Input placeholder="Name"/>
-			<Input placeholder="Surname"/>
 			<Input placeholder="E-mail"/>
-			<Button type="submit">Sign up</Button>
+			<Input placeholder="Password"/>
+			<Button type="submit">Sign in</Button>
 		</From>
 		<Link to="/home"><Button secondary>Back</Button></Link>
 		</RegisterFormContainer>
 	)
 }
 
-export default RegisterForm
+export default LoginForm
