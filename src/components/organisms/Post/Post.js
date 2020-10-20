@@ -7,9 +7,12 @@ import PostFooter from '../../molecules/PostFooter/PostFooter';
 const PostContainer = styled.div`
 	padding: 20px;
 	border-radius: 5px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.02);
 	max-width: 100%;
 	margin: 30px 0;
+	background: white;
+	margin-left: auto;
+	margin-right: auto;
 `
 const PostContent = styled.div`
 	padding: 30px 0;

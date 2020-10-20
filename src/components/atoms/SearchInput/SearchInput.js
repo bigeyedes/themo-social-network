@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 const SearchInput = styled.input`
 	border: none;
-	border-bottom: 1px solid grey;
-	padding: 5px 0 5px 15px;
-	color: grey;
-	font-size: 1rem;
+	border-radius: 20px;
+	padding: 10px 0 10px 25px;
+	background: #FAFCFF;
+	color: #c9c9c9;
+	font-size: 1.5rem;
 	font-weight: 400;
 	position: relative;
 	display: inline-block;

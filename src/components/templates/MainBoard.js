@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { firestore } from '../../firebase'
-import Post from '../organisms/Post/Post';
-import Header from '../organisms/Header/Header';
 import add from '../../actions'
+
+import Header from '../organisms/Header/Header';
+import Post from '../organisms/Post/Post';
+import Sidebar from '../organisms/Sidebar/Sidebar'
 
 
 const BoardContainer = styled.div`
-	max-width: 680px;
+	width: 50%;
+	padding: 0 30px;
 `
 
 function MainBoard({posts, add}) {
@@ -27,6 +30,7 @@ function MainBoard({posts, add}) {
   return (
     <>
 		<Header />
+		<Sidebar />
 		<BoardContainer >
 			{Object.entries(posts).map(([key, value]) => {
 				return <Post key={key} content={value.content}/>

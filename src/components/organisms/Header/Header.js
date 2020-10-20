@@ -9,28 +9,36 @@ const HeaderContainer = styled.header`
 	justify-content: space-between;
 	align-items: center;
 	font-family: 'Sora', sans-serif;
-	margin-bottom: 30px;
-
+	background: white;
 `
 
 const Logo = styled.div`
 	font-size: 2em;
 	color: #3975F5;
 	font-weight: 800;
-	width: 25%;
+	width: 15%;
+	padding: 20px;
+	border-right: 1px solid #dbdbdb;
+`
+
+const AvatarWrapper = styled.div`
+	width: 15%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
 `
 
 function Header(props) {
 
   return (
     <HeaderContainer>
-		<Logo>T</Logo>
+		<Logo>THEMO</Logo>
 		<div>
 			<SearchInput placeholder="Search"/>
 		</div>
-		<div>
+		<AvatarWrapper>
 			<UserAvatar/>
-		</div>
+		</AvatarWrapper>
     </HeaderContainer>
 	
   );
