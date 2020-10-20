@@ -1,11 +1,7 @@
-import React from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link
-} from "react-router-dom";
+import React, { useRef } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
+import { auth } from '../../../firebase/index'
 import Input from '../../atoms/Input/Input'
 import Button from '../../atoms/Buttons/Button/Button'
 
@@ -23,7 +19,7 @@ const RegisterFormContainer = styled.div`
 	}
 `
 
-const From = styled.form`
+const From = styled.div`
 	margin: 50px 0;
 	max-width: 500px;
 	text-align: center;
@@ -34,6 +30,16 @@ const From = styled.form`
 `
 
 const RegisterForm = () => {
+	const userName = useRef()
+	const userEmail = useRef()
+	const userPassword = useRef()
+
+	const handleRegistration = () =>{
+		auth.createUserWithEmailAndPassword(userEmail.current.value, userPassword.current.value).catch(function(error) {
+			alert(error.message);
+		});
+	}
+
 	return(
 		<RegisterFormContainer>
 		<div>
@@ -41,10 +47,10 @@ const RegisterForm = () => {
 			<p>Just fill form below and join to our community!</p>
 		</div>
 		<From>
-			<Input placeholder="Name"/>
-			<Input placeholder="Surname"/>
-			<Input placeholder="E-mail"/>
-			<Button type="submit">Sign up</Button>
+			<Input ref={userName} placeholder="Full name"/>
+			<Input ref={userEmail} type="email" placeholder="E-mail"/>
+			<Input ref={userPassword} type="password" placeholder="Password"/>
+			<Button onClick={handleRegistration}>Sign up</Button>
 		</From>
 		<Link to="/home"><Button secondary>Back</Button></Link>
 		</RegisterFormContainer>
