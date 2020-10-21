@@ -34,10 +34,14 @@ const LoginForm = () => {
 	const userEmail = useRef()
 	const userPassword = useRef()
 
-	const handleLogin = () =>{
-		auth.signInWithEmailAndPassword(userEmail.current.value, userPassword.current.value).catch(function(error) {
-			alert(error.message)
-		  });
+	const handleLogin = () => {
+		auth.signInWithEmailAndPassword(userEmail.current.value, userPassword.current.value)
+			.then(
+				alert('logged in')
+			)
+			.catch(function(error) {
+				alert(error.message)
+			});
 	}
 
 	return(

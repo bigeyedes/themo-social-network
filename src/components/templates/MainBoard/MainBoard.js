@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { firestore } from '../../../firebase'
-import add from '../../../actions'
+import { add } from '../../../actions'
 
 import Header from '../../organisms/Header/Header';
 import Post from '../../organisms/Post/Post';
@@ -29,7 +29,7 @@ function MainBoard({posts, add}) {
 	
   return (
     <>
-		<Header />
+		
 		<Sidebar />
 		<BoardContainer >
 			{Object.entries(posts).map(([key, value]) => {

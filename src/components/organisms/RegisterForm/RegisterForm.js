@@ -35,9 +35,13 @@ const RegisterForm = () => {
 	const userPassword = useRef()
 
 	const handleRegistration = () =>{
-		auth.createUserWithEmailAndPassword(userEmail.current.value, userPassword.current.value).catch(function(error) {
-			alert(error.message);
-		});
+		auth.createUserWithEmailAndPassword(userEmail.current.value, userPassword.current.value)
+			.then(
+				alert('User registered')
+			)
+			.catch(function(error) {
+				alert(error.message);
+			});
 	}
 
 	return(

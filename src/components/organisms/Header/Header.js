@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { auth } from '../../../firebase/index'
 import SearchInput from '../../atoms/SearchInput/SearchInput'
+import Button from '../../atoms/Buttons/Button/Button'
 import UserAvatar from '../../atoms/UserAvatar/UserAvatar'
 
 const HeaderContainer = styled.header`
@@ -30,6 +33,7 @@ const AvatarWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+	align-items: center;
 	border-right: 1px solid #dbdbdb;
 	a {
 		display: block;
@@ -39,23 +43,44 @@ const AvatarWrapper = styled.div`
 	}
 `
 
-function Header(props) {
+function Header({user}) {
+
+	const handleLoginout = () => {
+		auth.signOut()
+			.then(function() {
+				alert("You're logged out")
+			}).catch(function(error) {
+				alert(error.message)
+			});
+	}
 
   return (
-
     <HeaderContainer>
 		<Logo><Link to="/home">THEMO</Link></Logo>
 		<div>
 			<SearchInput placeholder="Search"/>
 		</div>
 		<AvatarWrapper>
-			<Link to="/sign-in">Sign In</Link>
-			<Link to="/sign-up">Sign Up</Link>
-			{/* <UserAvatar/> */}
+			{user
+				?	<>
+						<Link to="/home" onClick={handleLoginout}><Button>Logout</Button></Link>
+						<UserAvatar/>
+						{user.displayName ? user.displayName : ''}
+					</>
+				:	<>
+						<Link to="/sign-in">Sign In</Link>
+						<Link to="/sign-up">Sign Up</Link>
+					</>
+			}
 		</AvatarWrapper>
+	
     </HeaderContainer>
 	
   );
 }
 
-export default Header;
+const mapStateToProps = state => ({
+	user: state.user
+})
+
+export default connect(mapStateToProps, null)(Header);
