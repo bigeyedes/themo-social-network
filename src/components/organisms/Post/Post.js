@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { firestore } from '../../../firebase/index'
 import PostHeader from '../../molecules/PostHeader/PostHeader';
 import PostFooter from '../../molecules/PostFooter/PostFooter';
 
@@ -13,6 +15,17 @@ const PostContainer = styled.div`
 	background: white;
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
+	.delete-post {
+		position: absolute;
+		top: 0;
+		right: 20px;
+		font-size: 2em;
+		font-weight: 700;
+		color: #b3b3b3;
+		font-family: 'Sora', sans-serif;
+		cursor: pointer;
+	}
 `
 const PostContent = styled.div`
 	padding: 30px 0;
@@ -21,16 +34,33 @@ const PostContent = styled.div`
 	font-family: 'Sora', sans-serif;
 `
 
-const Post = ({content, title, timestamp}) => {
+const Post = ({content, title, timestamp, id, likes, user}) => {
+	console.log(user)
+
+	const handlePostDelete = (e) => {
+		const postID = e.target.parentNode.getAttribute('data-id');
+
+		firestore.collection("posts").doc(postID).delete().then(function() {
+			alert("Document successfully deleted!");
+		}).catch(function(error) {
+			alert("Error removing document: ", error);
+		});
+	}
+
 	return(
-		<PostContainer>
+		<PostContainer data-id={id}>
+			{user ? <div className="delete-post" onClick={handlePostDelete}>...</div> : ''}
 			<PostHeader title={title} timestamp={timestamp}/>
 			<PostContent>
 				{content}
 			</PostContent>
-			<PostFooter></PostFooter>
+			<PostFooter likes={likes}></PostFooter>
 		</PostContainer>
 	)
 }
 
-export default Post;
+const mapStateToProps = state => ({
+	user: state.user
+})
+
+export default connect(mapStateToProps, null)(Post);

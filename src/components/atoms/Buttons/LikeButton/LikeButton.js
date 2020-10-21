@@ -11,6 +11,7 @@ const Like = styled.button`
 	background-repeat: no-repeat;
 	background-size: 20px auto;
 	background-position: center;
+	margin-right: 5px;
 	border: none;
 	&:hover {
 		opacity: 0.7

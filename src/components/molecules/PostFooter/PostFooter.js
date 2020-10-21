@@ -1,11 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
 import LikeButton from '../../atoms/Buttons/LikeButton/LikeButton'
 
-const PostFooter = () => {
+const LikeBtnContainer = styled.div`
+	display: flex;
+	align-items: center;
+	span {
+		color: grey;
+		font-family: 'Sora',sans-serif;
+	}
+`
+
+const PostFooter = ({likes}) => {
 	return(
-		<div>
-			<LikeButton></LikeButton>
-		</div>
+		<LikeBtnContainer>
+			<LikeButton></LikeButton><span>{likes}</span>
+		</LikeBtnContainer>
 		
 	)
 }

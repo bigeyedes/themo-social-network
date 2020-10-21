@@ -56,14 +56,14 @@ function Header({user}) {
 
   return (
     <HeaderContainer>
-		<Logo><Link to="/home">THEMO</Link></Logo>
+		<Logo><Link to="/">THEMO</Link></Logo>
 		<div>
 			<SearchInput placeholder="Search"/>
 		</div>
 		<AvatarWrapper>
 			{user
 				?	<>
-						<Link to="/home" onClick={handleLoginout}><Button>Logout</Button></Link>
+						<Link to="/" onClick={handleLoginout}><Button>Logout</Button></Link>
 						<UserAvatar/>
 						{user.displayName ? user.displayName : ''}
 					</>

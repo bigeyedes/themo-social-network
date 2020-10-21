@@ -54,7 +54,7 @@ const LoginForm = () => {
 			<Input ref={userPassword} type="password" placeholder="Password"/>
 			<Button onClick={handleLogin}>Sign in</Button>
 		</From>
-		<Link to="/home"><Button secondary>Back</Button></Link>
+		<Link to="/"><Button secondary>Back</Button></Link>
 		</RegisterFormContainer>
 	)
 }

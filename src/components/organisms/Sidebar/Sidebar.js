@@ -9,6 +9,12 @@ const SidebarContainer = styled.div`
 	height: 100vh;
 	font-family: 'Sora', sans-serif;
 	font-size: 1em;
+	position: relative;
+	.hash-wrapper {
+		position: fixed;
+		top: 100px;
+		left: 20px;
+	}
 	a {
 		display: block;
 		margin: 10px 0;
@@ -18,14 +24,18 @@ const SidebarContainer = styled.div`
 `
 
 const Sidebar = () => {
+
 	return(
 		<SidebarContainer>
-			<h3>Most popular tags</h3>
-			<a href="#">#news</a>
-			<a href="#">#most_popular</a>
-			<a href="#">#news</a>
-			<a href="#">#poland</a>
-			<a href="#">#fitness</a>
+			<div className="hash-wrapper">
+				<h3>Most popular tags</h3>
+				<a href="#">#news</a>
+				<a href="#">#dogs</a>
+				<a href="#">#cats</a>
+				<a href="#">#poland</a>
+				<a href="#">#fitness</a>
+			</div>
+			
 		</SidebarContainer>
 	)
 }

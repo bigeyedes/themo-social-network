@@ -56,7 +56,7 @@ const RegisterForm = () => {
 			<Input ref={userPassword} type="password" placeholder="Password"/>
 			<Button onClick={handleRegistration}>Sign up</Button>
 		</From>
-		<Link to="/home"><Button secondary>Back</Button></Link>
+		<Link to="/"><Button secondary>Back</Button></Link>
 		</RegisterFormContainer>
 	)
 }

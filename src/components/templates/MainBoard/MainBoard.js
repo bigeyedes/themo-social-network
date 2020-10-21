@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { firestore } from '../../../firebase'
@@ -12,6 +12,8 @@ import Sidebar from '../../organisms/Sidebar/Sidebar'
 const BoardContainer = styled.div`
 	width: 50%;
 	padding: 0 30px;
+	/* margin-left: auto;
+	margin-right: auto; */
 `
 
 function MainBoard({posts, user, add}) {
@@ -25,7 +27,7 @@ function MainBoard({posts, user, add}) {
 			});
 		}
 		fetchPosts()
-	}, [add])
+	}, [])
 	
   return (
     <>
@@ -36,7 +38,7 @@ function MainBoard({posts, user, add}) {
 			: <><h2>Please login and start posting!</h2></>
 		}
 			{Object.entries(posts).map(([key, value]) => {
-				return <Post key={key} content={value.content} title={value.title} timestamp={value.timestamp}/>
+				return <Post key={key} content={value.content} title={value.title} timestamp={value.timestamp} id={value.id} likes={value.likes}/>
 			})}
 		</BoardContainer>
     </>

@@ -41,7 +41,7 @@ function App({user, userAuth}) {
 					<Route path="/sign-up">
 						<Registration />
 					</Route>
-					<Route path="/home">
+					<Route exact path="/">
 						<MainBoard />
 					</Route>
 				</Switch>
