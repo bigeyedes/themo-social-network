@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 
 const Textarea = styled.textarea`
-	border: 1px solid grey;
-	border-radius: 30px;
-	padding: 5px 0 5px 15px;
+	background: #FAFCFF;
+	border: none;
+	border-radius: 10px;
+	padding: 20px;
 	color: grey;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	font-weight: 400;
-	position: relative;
 	display: inline-block;
+	width: 100%;
+	height: 100px;
+	margin: 20px 0;
 	&:focus, &:active{
 		border: none;
 		outline: none;

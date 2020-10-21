@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { firestore } from '../../../firebase'
 import { add } from '../../../actions'
 
-import Header from '../../organisms/Header/Header';
+import PostCreator from '../../organisms/PostCreator/PostCreator';
 import Post from '../../organisms/Post/Post';
 import Sidebar from '../../organisms/Sidebar/Sidebar'
 
@@ -14,24 +14,27 @@ const BoardContainer = styled.div`
 	padding: 0 30px;
 `
 
-function MainBoard({posts, add}) {
+function MainBoard({posts, user, add}) {
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			await firestore.collection('posts').get().then(function(querySnapshot) {
+			await firestore.collection('posts').orderBy('timestamp', 'desc').get().then(function(querySnapshot) {
 				querySnapshot.forEach(function(doc) {
 					add(doc.data());
 				});
 			});
-		}	
+		}
 		fetchPosts()
 	}, [add])
 	
   return (
     <>
-		
 		<Sidebar />
 		<BoardContainer >
+		{user
+			? <PostCreator/>
+			: <><h2>Please login and start posting!</h2></>
+		}
 			{Object.entries(posts).map(([key, value]) => {
 				return <Post key={key} content={value.content} title={value.title} timestamp={value.timestamp}/>
 			})}
@@ -43,7 +46,8 @@ function MainBoard({posts, add}) {
 
 
 const mapStateToProps = state => ({
-	posts: state.posts
+	posts: state.posts,
+	user: state.user
 })
 
 const mapDispatchToProps = dispatch => ({
