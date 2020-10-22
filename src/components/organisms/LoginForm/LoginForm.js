@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import { auth } from '../../../firebase/index'
+import { auth } from '../../../firebase'
 import Input from '../../atoms/Input/Input'
 import Button from '../../atoms/Buttons/Button/Button'
 

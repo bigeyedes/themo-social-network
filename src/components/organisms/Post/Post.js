@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { firestore } from '../../../firebase/index'
+import { firestore } from '../../../firebase'
 import PostHeader from '../../molecules/PostHeader/PostHeader';
 import PostFooter from '../../molecules/PostFooter/PostFooter';
 
@@ -25,6 +25,31 @@ const PostContainer = styled.div`
 		color: #b3b3b3;
 		font-family: 'Sora', sans-serif;
 		cursor: pointer;
+		transition: .3s ease;
+		&:hover {
+			color: #3975F5;
+		}
+		button { 
+			border: none;
+			background: white;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+			padding: 10px;
+			cursor: pointer;
+			position: absolute;
+			top: 40px;
+			left: -12px;
+			transition: .3s ease;
+			&:hover {
+				background: #3975F5;
+				color: white;
+			}
+		}
+		.visibility-true{
+			display: block;
+		}
+		.visibility-false{
+			display: none;
+		}
 	}
 `
 const PostContent = styled.div`
@@ -35,21 +60,35 @@ const PostContent = styled.div`
 `
 
 const Post = ({content, title, timestamp, id, likes, user}) => {
-	console.log(user)
 
-	const handlePostDelete = (e) => {
-		const postID = e.target.parentNode.getAttribute('data-id');
+	const[isVisible, setVisibility] = useState(false)
 
-		firestore.collection("posts").doc(postID).delete().then(function() {
+	const deletePost = (postCollection, postID) => {
+		firestore.collection(postCollection).doc(postID).delete().then(function() {
 			alert("Document successfully deleted!");
 		}).catch(function(error) {
-			alert("Error removing document: ", error);
+			alert("Error removing document: ", error.message);
 		});
+	}
+
+	const toggleVisibility = () => {
+		setVisibility(!isVisible)
+	}
+
+	const handlePostDelete = (e) => {
+		const postID = e.target.parentNode.parentNode.getAttribute('data-id');
+		deletePost('posts', postID)
 	}
 
 	return(
 		<PostContainer data-id={id}>
-			{user ? <div className="delete-post" onClick={handlePostDelete}>...</div> : ''}
+			{user 
+				? <div className="delete-post" onClick={toggleVisibility}>
+					...
+					<button className={`visibility-${isVisible.toString()}`} onClick={handlePostDelete}>Delete</button>
+					</div> 
+				: ''
+			}
 			<PostHeader title={title} timestamp={timestamp}/>
 			<PostContent>
 				{content}

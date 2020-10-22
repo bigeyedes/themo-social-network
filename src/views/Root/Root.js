@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Header from 'components/organisms/Header/Header'
 import { userAuth } from '../../actions'
-import { auth } from '../../firebase/index' 
+import { auth } from '../../firebase' 
 import GlobalStyle from 'theme/GlobalStyle';
 import MainBoard from 'components/templates/MainBoard/MainBoard';
 import Registration from 'components/templates/Registration/Registration'

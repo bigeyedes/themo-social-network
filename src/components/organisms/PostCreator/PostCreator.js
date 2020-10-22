@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import firebase from 'firebase/app'
-import { firestore } from '../../../firebase/index'
+import { firestore } from '../../../firebase'
 import Input from '../../atoms/Input/Input'
 import TextArea from '../../atoms/Textarea/Textarea';
 import Button from '../../atoms/Buttons/Button/Button'

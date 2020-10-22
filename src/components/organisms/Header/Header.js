@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { auth } from '../../../firebase/index'
+import { auth } from '../../../firebase'
 import SearchInput from '../../atoms/SearchInput/SearchInput'
 import Button from '../../atoms/Buttons/Button/Button'
 import UserAvatar from '../../atoms/UserAvatar/UserAvatar'
