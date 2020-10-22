@@ -63,8 +63,8 @@ const Post = ({content, title, timestamp, id, likes, user}) => {
 
 	const[isVisible, setVisibility] = useState(false)
 
-	const deletePost = (postCollection, postID) => {
-		firestore.collection(postCollection).doc(postID).delete().then(function() {
+	const deletePost = (postID) => {
+		firestore.collection('posts').doc(postID).delete().then(function() {
 			alert("Document successfully deleted!");
 		}).catch(function(error) {
 			alert("Error removing document: ", error.message);
@@ -77,7 +77,7 @@ const Post = ({content, title, timestamp, id, likes, user}) => {
 
 	const handlePostDelete = (e) => {
 		const postID = e.target.parentNode.parentNode.getAttribute('data-id');
-		deletePost('posts', postID)
+		deletePost(postID)
 	}
 
 	return(
@@ -93,7 +93,7 @@ const Post = ({content, title, timestamp, id, likes, user}) => {
 			<PostContent>
 				{content}
 			</PostContent>
-			<PostFooter likes={likes}></PostFooter>
+			<PostFooter likes={likes} user={user}></PostFooter>
 		</PostContainer>
 	)
 }

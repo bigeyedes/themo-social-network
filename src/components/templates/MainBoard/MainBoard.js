@@ -18,15 +18,14 @@ const BoardContainer = styled.div`
 
 function MainBoard({posts, user, add}) {
 
+
 	useEffect(() => {
-		const fetchPosts = async () => {
-			await firestore.collection('posts').orderBy('timestamp', 'desc').get().then(function(querySnapshot) {
-				querySnapshot.forEach(function(doc) {
-					add(doc.data());
+		const unsubscribe = firestore.collection('posts').orderBy('timestamp', 'desc').get().then(function(querySnapshot) {
+					querySnapshot.forEach(function(doc) {
+						add(doc.data());
+					});
 				});
-			});
-		}
-		fetchPosts()
+        return unsubscribe;
 	}, [])
 	
   return (

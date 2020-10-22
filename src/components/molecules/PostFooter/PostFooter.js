@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { firestore } from '../../../firebase'
 import LikeButton from '../../atoms/Buttons/LikeButton/LikeButton'
 
 const LikeBtnContainer = styled.div`
@@ -11,10 +12,33 @@ const LikeBtnContainer = styled.div`
 	}
 `
 
-const PostFooter = ({likes}) => {
+const PostFooter = ({likes, user}) => {
+	const[displayLikes, setDisplayLikes] = useState(likes)
+
+	const updatePostLikesByOne = (postID) => {
+		let washingtonRef = firestore.collection('posts').doc(postID);
+		return washingtonRef.update({
+			likes: likes + 1
+		})
+	}
+
+	const handleIncreseLikes = (e) => {
+		const postID = e.target.parentNode.parentNode.getAttribute('data-id')
+
+		updatePostLikesByOne(postID)
+		firestore.collection("posts").doc(postID)
+			.onSnapshot(function(doc) {
+				setDisplayLikes(doc.data().likes);
+			});
+	}
+
 	return(
 		<LikeBtnContainer>
-			<LikeButton></LikeButton><span>{likes}</span>
+			{user
+				? <LikeButton onClick={handleIncreseLikes}></LikeButton>
+				: ''
+			}
+			<span>{displayLikes}</span>
 		</LikeBtnContainer>
 		
 	)

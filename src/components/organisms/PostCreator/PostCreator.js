@@ -34,7 +34,7 @@ const PostCreator = () => {
 			timestamp: firebase.firestore.Timestamp.now().toDate(),
 			likes: 0
 		};
-		firestore.collection("posts").doc(randomPostId).set(docData).then(function() {
+		await firestore.collection("posts").doc(randomPostId).set(docData).then(function() {
 			alert("Post is successfully added!");
 		})
 	}
